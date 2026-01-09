@@ -21,4 +21,9 @@ class LeverancierModel extends Model
     {
         return DB::SELECT ('CALL GetLeveranciers()');
     }
+
+     public function getLeverancierById($id)
+    {
+        return DB::SELECT ('CALL GetLeverancierById(?)', [$id]);
+    }
 }
