@@ -11,9 +11,15 @@
 <body class="mt-4">
     <div class="container d-flex justify-content-center">
         <div class="col-md-5 text-center">
-            <h1>Homepagina</h1>
+            <div>
+                <h1>Homepagina</h1>
+            </div>
             <hr class="my-4" />
-            <p>Welkom op de homepagina van Jamil zijn leveranciersoverzicht applicatie.</p>
+            <div>
+                <a href="{{ route('leveranciers.index') }}">
+                    Wijzigen Leveranciers
+                </a>
+            </div>
         </div>
     </div>
 </body>
