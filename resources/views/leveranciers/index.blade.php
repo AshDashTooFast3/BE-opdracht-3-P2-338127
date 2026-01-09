@@ -18,7 +18,7 @@
 
             <hr class="my-4" />
 
-            <table class="table table-hover table-striped">
+            <table class="table table-hover table-striped table-bordered">
                 <thead>
                     <th>Naam</th>
                     <th>Contactpersoon</th>
