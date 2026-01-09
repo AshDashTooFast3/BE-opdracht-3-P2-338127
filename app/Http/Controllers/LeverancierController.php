@@ -23,4 +23,12 @@ class LeverancierController extends Controller
             'leveranciers' => $leveranciers
         ]);
     }
+
+    public function show($id)
+    {
+        return view ('leveranciers.show', [
+            'title' => 'Leverancier Details',
+            'leverancierId' => $id
+        ]);
+    }
 }
