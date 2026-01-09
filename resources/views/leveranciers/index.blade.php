@@ -24,7 +24,7 @@
                     <th>Contactpersoon</th>
                     <th>Leveranciernummer</th>
                     <th>Mobiel</th>
-                    <th>Leverancier Details</th>
+                    <th class="text-center">Leverancier Details</th>
                 </thead>
                 <tbody>
                     @forelse ($leveranciers as $leverancier)
@@ -38,7 +38,7 @@
                                     @csrf
                                     @method('GET')
                                     <button type="submit" class="btn btn-primary btn-sm">
-                                        <i class="bi bi-pencil"></i>
+                                        <i class="bi bi-pencil d-flex justify-content-center "></i>
                                     </button>
                                 </form>
                             </td>
