@@ -48,6 +48,9 @@
                     @endforelse
                 </tbody>
             </table>
+            <div class="ms-auto d-flex gap-3 justify-content-end">
+                <a href="{{ route('home') }}" class="btn btn-secondary">Home</a>
+            </div>
         </div>
     </div>
 </body>
