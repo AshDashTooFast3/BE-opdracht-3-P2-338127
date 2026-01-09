@@ -26,11 +26,18 @@ class LeverancierController extends Controller
 
     public function show($id)
     {
-        $leverancierId = $this->leverancierModel->getLeverancierById($id);
+        $leverancierById = $this->leverancierModel->getLeverancierById($id);
 
         return view ('leveranciers.show', [
             'title' => 'Leverancier Details',
-            'leverancierId' => $leverancierId
+            'leverancierById' => $leverancierById
+        ]);
+    }
+
+    public function edit($id)
+    {
+        return view('leveranciers.edit', [
+            'title' => 'Leverancier Bewerken',
         ]);
     }
 }
