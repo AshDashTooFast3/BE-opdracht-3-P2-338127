@@ -48,9 +48,9 @@
                     @endforelse
                 </tbody>
             </table>
-            <div class="ms-auto d-flex gap-3 justify-content-end">
+            <div class="d-flex ">
                 {{ $leveranciers->links('pagination::simple-bootstrap-4') }}
-                <div> 
+                <div class="ms-auto">
                     <a href="{{ route('home') }}" class="btn btn-secondary">Home</a>
                 </div>
             </div>
