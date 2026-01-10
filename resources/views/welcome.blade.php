@@ -1,26 +1,28 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="nl">
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Overzicht leveranciers Jamil</title>
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <title>Homepagina</title>
 </head>
 
-<body class="mt-4">
-    <div class="container d-flex justify-content-center">
-        <div class="col-md-5 text-center">
-            <div>
-                <h1>Homepagina</h1>
-            </div>
-            <hr class="my-4" />
-            <div>
-                <a href="{{ route('leveranciers.index') }}">
-                    Wijzigen Leveranciers
-                </a>
-            </div>
+<body>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+        }
+    </style>
+    <div class="container" style="max-width: 200px;">
+        <div class="border-bottom pb-3 mb-4 d-inline-block">
+            <h1 class="h4 fw-normal">Homepagina
+                <hr>
+            </h1>
         </div>
+        <a href="{{ route('leveranciers.index') }}" class="border-bottom text-decoration-none text-dark d-inline-block"
+            style="font-size: 20px;">
+            Wijzigen Leveranciers
+        </a>
     </div>
 </body>
 
