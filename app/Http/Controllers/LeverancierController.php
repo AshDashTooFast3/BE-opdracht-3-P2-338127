@@ -75,8 +75,8 @@ class LeverancierController extends Controller
         Log::info("Aantal bijgewerkte rijen: {$affectedRows}");
 
         if ($affectedRows > 0) {
-            return redirect()->route('leverancier.show', ['id' => $id])
-                ->with('success', 'Leverancier succesvol bijgewerkt.');
+            return redirect()->route('leverancier.edit', ['id' => $id])
+                ->with('success', 'De wijzigingen zijn doorgevoerd.');
         } else {
             return redirect()->back()
                 ->with('error', 'Er is een fout opgetreden bij het bijwerken van de leverancier.');
