@@ -13,7 +13,16 @@
     <div class="container d-flex justify-content-center flex-column col-5">
         <h1>{{ $title }}</h1>
         <hr class="my-4">
-        
+
+        @if(session('success'))
+            <div class="alert alert-success">
+                {{ session('success') }}
+            </div>
+                @foreach ($leverancierById as $leverancier)
+                    <meta http-equiv="refresh" content="3;url={{ route('leverancier.show', ['id' => $leverancier->Id]) }}">
+                @endforeach
+        @endif
+
         @forelse ($leverancierById as $leverancier)
             <form action="{{ route('leverancier.update', ['id' => $leverancier->Id]) }}" method="POST">
                 @csrf
@@ -45,7 +54,7 @@
                 </div>
                 
                 <div class="mb-3">
-                    <label class="form-label"><strong>Straat:</strong></label>
+                    <label class="form-label"><strong>Straatnaam:</strong></label>
                     <input type="text" class="form-control" value="{{ $leverancier->Straat }}" name="Straat">
                 </div>
                 
@@ -67,7 +76,9 @@
                 <div class="d-flex gap-3">
                     <button type="submit" class="btn btn-success">Opslaan</button>
                     <div class="ms-auto d-flex gap-3">
-                        <a href="{{ route('leveranciers.index') }}" class="btn btn-secondary">Terug</a>
+                        @foreach ($leverancierById as $leverancier)
+                            <a href="{{ route('leverancier.show', ['id' => $leverancier->Id]) }}" class="btn btn-secondary">Terug</a>
+                        @endforeach
                         <a href="{{ route('home') }}" class="btn btn-secondary">Home</a>
                     </div>
                 </div>
