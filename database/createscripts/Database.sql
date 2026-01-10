@@ -1,8 +1,8 @@
-DROP DATABASE IF EXISTS opdracht_3;
-
-CREATE DATABASE opdracht_3;
-
 USE opdracht_3;
+
+DROP TABLE IF EXISTS Leverancier;
+DROP TABLE IF EXISTS Contact;
+
 
 CREATE TABLE Contact (
     Id INT AUTO_INCREMENT PRIMARY KEY,
