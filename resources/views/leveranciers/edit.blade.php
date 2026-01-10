@@ -18,9 +18,9 @@
             <div class="alert alert-success">
                 {{ session('success') }}
             </div>
-                @foreach ($leverancierById as $leverancier)
-                    <meta http-equiv="refresh" content="3;url={{ route('leverancier.show', ['id' => $leverancier->Id]) }}">
-                @endforeach
+            @foreach ($leverancierById as $leverancier)
+                <meta http-equiv="refresh" content="3;url={{ route('leverancier.show', ['id' => $leverancier->Id]) }}">
+            @endforeach
         @endif
 
         @forelse ($leverancierById as $leverancier)
@@ -28,56 +28,61 @@
                 @csrf
                 @method('PUT')
 
-                <div class="mb-3 hidden">
-                    <label class="form-label"><strong>ContactId</strong></label>
+                <div class="d-none mb-3 d-flex align-items-center">
+                    <label class="form-label me-2 mb-0" style="width: 250px"><strong>ContactId</strong></label>
                     <input type="text" class="form-control" value="{{ $leverancier->ContactId }}" name="ContactId">
                 </div>
-                
-                <div class="mb-3">
-                    <label class="form-label"><strong>Naam:</strong></label>
+
+                <div class="mb-3 d-flex align-items-center">
+                    <label class="form-label me-2 mb-0" style="width: 250px"><strong>Naam:</strong></label>
                     <input type="text" class="form-control" value="{{ $leverancier->Naam }}" name="Naam">
                 </div>
-                
-                <div class="mb-3">
-                    <label class="form-label"><strong>Contactpersoon:</strong></label>
-                    <input type="text" class="form-control" value="{{ $leverancier->ContactPersoon }}" name="Contactpersoon">
+
+                <div class="mb-3 d-flex align-items-center">
+                    <label class="form-label me-2 mb-0" style="width: 250px"><strong>Contactpersoon:</strong></label>
+                    <input type="text" class="form-control" value="{{ $leverancier->ContactPersoon }}"
+                        name="Contactpersoon">
                 </div>
-                
-                <div class="mb-3">
-                    <label class="form-label"><strong>Leveranciernummer:</strong></label>
-                    <input type="text" class="form-control" value="{{ $leverancier->LeverancierNummer }}" name="LeverancierNummer">
+
+                <div class="mb-3 d-flex align-items-center">
+                    <label class="form-label me-2 mb-0" style="width: 250px"><strong>Leveranciernummer:</strong></label>
+                    <input type="text" class="form-control" value="{{ $leverancier->LeverancierNummer }}"
+                        name="LeverancierNummer">
                 </div>
-                
-                <div class="mb-3">
-                    <label class="form-label"><strong>Mobiel:</strong></label>
+
+                <div class="mb-3 d-flex align-items-center">
+                    <label class="form-label me-2 mb-0" style="width: 250px"><strong>Mobiel:</strong></label>
                     <input type="text" class="form-control" value="{{ $leverancier->Mobiel }}" name="Mobiel">
                 </div>
-                
-                <div class="mb-3">
-                    <label class="form-label"><strong>Straatnaam:</strong></label>
+
+                <div class="mb-3 d-flex align-items-center">
+                    <label class="form-label me-2 mb-0" style="width: 250px"><strong>Straatnaam:</strong></label>
                     <input type="text" class="form-control" value="{{ $leverancier->Straat }}" name="Straat">
                 </div>
-                
-                <div class="mb-3">
-                    <label class="form-label"><strong>Huisnummer:</strong></label>
+
+                <div class="mb-3 d-flex align-items-center">
+                    <label class="form-label me-2 mb-0" style="width: 250px"><strong>Huisnummer:</strong></label>
                     <input type="text" class="form-control" value="{{ $leverancier->Huisnummer }}" name="Huisnummer">
                 </div>
-                
-                <div class="mb-3">
-                    <label class="form-label"><strong>Postcode:</strong></label>
+
+                <div class="mb-3 d-flex align-items-center">
+                    <label class="form-label me-2 mb-0" style="width: 250px"><strong>Postcode:</strong></label>
                     <input type="text" class="form-control" value="{{ $leverancier->Postcode }}" name="Postcode">
                 </div>
-                
-                <div class="mb-3">
-                    <label class="form-label"><strong>Stad:</strong></label>
-                    <input type="text" class="form-control" value="{{ $leverancier->Stad }}" name="Stad">
+
+                <div class="mb-3 d-flex align-items-center">
+                    <label class="form-label me-2 mb-0" style="width: 185px"><strong>Stad:</strong></label>
+                    <div class="flex-grow-1">
+                        <input type="text" class="form-control" value="{{ $leverancier->Stad }}" name="Stad">
+                    </div>
                 </div>
-                
+
                 <div class="d-flex gap-3">
-                    <button type="submit" class="btn btn-success">Opslaan</button>
+                    <button type="submit" class="btn btn-success">Sla op</button>
                     <div class="ms-auto d-flex gap-3">
                         @foreach ($leverancierById as $leverancier)
-                            <a href="{{ route('leverancier.show', ['id' => $leverancier->Id]) }}" class="btn btn-secondary">Terug</a>
+                            <a href="{{ route('leverancier.show', ['id' => $leverancier->Id]) }}"
+                                class="btn btn-secondary">Terug</a>
                         @endforeach
                         <a href="{{ route('home') }}" class="btn btn-secondary">Home</a>
                     </div>
