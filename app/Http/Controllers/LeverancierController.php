@@ -17,7 +17,7 @@ class LeverancierController extends Controller
 
     public function index()
     {
-        $leveranciers = $this->leverancierModel->getLeveranciers();
+        $leveranciers = LeverancierModel::paginate(4);
 
         return view('leveranciers.index', [
             'title' => 'Overzicht Leveranciers',

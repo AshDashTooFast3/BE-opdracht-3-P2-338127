@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\DB;
 
 class LeverancierModel extends Model
 {
-    protected $table = 'Leveranciers';
+    protected $table = 'Leverancier';
 
     protected $fillable = [
         'Naam',
