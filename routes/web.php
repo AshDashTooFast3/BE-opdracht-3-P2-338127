@@ -15,3 +15,6 @@ Route::get('/leverancier/{id}', [LeverancierController::class, 'show'])
 
 Route::get('/leverancier/{id}/edit', [LeverancierController::class, 'edit'])
 ->name('leverancier.edit');
+
+Route::put('/leverancier/{id}', [LeverancierController::class, 'update'])
+->name('leverancier.update');
