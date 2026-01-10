@@ -27,6 +27,8 @@ BEGIN
           L.ContactId = p_contactId,
           L.DatumGewijzigd = SYSDATE(6) 
        WHERE L.Id = p_id;
+      SELECT ROW_COUNT() as affected;
+
 
     -- Update Contact tabel
     UPDATE Contact C
