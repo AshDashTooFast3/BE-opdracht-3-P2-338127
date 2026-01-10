@@ -23,6 +23,15 @@
             @endforeach
         @endif
 
+        @if(session('error'))
+            <div class="alert alert-danger">
+                {{ session('error') }}
+            </div>
+             @foreach ($leverancierById as $leverancier)
+                <meta http-equiv="refresh" content="3;url={{ route('leverancier.show', ['id' => $leverancier->Id]) }}">
+            @endforeach
+        @endif
+
         @forelse ($leverancierById as $leverancier)
             <form action="{{ route('leverancier.update', ['id' => $leverancier->Id]) }}" method="POST">
                 @csrf
@@ -31,6 +40,11 @@
                 <div class="d-none mb-3 d-flex align-items-center">
                     <label class="form-label me-2 mb-0" style="width: 250px"><strong>ContactId</strong></label>
                     <input type="text" class="form-control" value="{{ $leverancier->ContactId }}" name="ContactId">
+                </div>
+
+                <div class="d-none mb-3 d-flex align-items-center">
+                    <label class="form-label me-2 mb-0" style="width: 250px"><strong>IsActief</strong></label>
+                    <input type="text" class="form-control" value="{{ $leverancier->IsActief }}" name="IsActief">
                 </div>
 
                 <div class="mb-3 d-flex align-items-center">

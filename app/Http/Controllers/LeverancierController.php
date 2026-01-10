@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\LeverancierModel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Validation\Rule;
 
 class LeverancierController extends Controller
 {
@@ -47,16 +48,18 @@ class LeverancierController extends Controller
 
     public function update(Request $request, $id)
     {
-        $data = $request->only([
-            'Naam',
-            'Contactpersoon',
-            'LeverancierNummer',
-            'Mobiel',
-            'ContactId',
-            'Straat',
-            'Huisnummer',
-            'Postcode',
-            'Stad',
+
+        $data = $request->validate([
+            'Naam' => 'required|string|max:255',
+            'Contactpersoon' => 'required|string|max:255',
+            'LeverancierNummer' => 'required|string|max:50',
+            'Mobiel' => 'nullable|string|max:15',
+            'ContactId' => 'required|integer',
+            'Straat' => 'required|string|max:255',
+            'Huisnummer' => 'required|string|max:10',
+            'Postcode' => 'required|string|max:10',
+            'Stad' => 'required|string|max:255',
+            'IsActief' =>'required',
         ]);
 
         $affectedRows = $this->leverancierModel->sp_UpdateLeverancier(
@@ -74,12 +77,14 @@ class LeverancierController extends Controller
 
         Log::info("Aantal bijgewerkte rijen: {$affectedRows}");
 
-        if ($affectedRows > 0) {
+        if ($data['IsActief'] == 0) {
+            return redirect()->route('leverancier.edit', ['id' => $id])
+                ->with('error', 
+                'Door een technische storing is het niet mogelijk de wijziging door te voeren. 
+                        Probeer het op een later moment nog eens');
+        } else {
             return redirect()->route('leverancier.edit', ['id' => $id])
                 ->with('success', 'De wijzigingen zijn doorgevoerd.');
-        } else {
-            return redirect()->back()
-                ->with('error', 'Er is een fout opgetreden bij het bijwerken van de leverancier.');
-        }
+        }  
     }
 }

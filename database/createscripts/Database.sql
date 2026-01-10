@@ -43,5 +43,5 @@ INSERT INTO Leverancier (Naam, ContactPersoon, Leveranciernummer, Mobiel, Contac
 ('Astra Sweets', 'Jasper del Monte', 'L1029284315', '06-39398734', 2, 1, NULL, SYSDATE(6), SYSDATE(6)),
 ('Haribo', 'Sven Stalman', 'L1029324748', '06-24383291', 3, 1, NULL, SYSDATE(6), SYSDATE(6)),
 ('Basset', 'Joyce Stelterberg', 'L1023845773', '06-48293823', 4, 1, NULL, SYSDATE(6), SYSDATE(6)),
-('De Bron', 'Remco Veenstra', 'L1023857736', '06-34291234', 5, 1, NULL, SYSDATE(6), SYSDATE(6)),
+('De Bron', 'Remco Veenstra', 'L1023857736', '06-34291234', 5, 0, NULL, SYSDATE(6), SYSDATE(6)),
 ('Quality Street', 'Johan Nooij', 'L1029234586', '06-23458456', 6, 1, NULL, SYSDATE(6), SYSDATE(6));

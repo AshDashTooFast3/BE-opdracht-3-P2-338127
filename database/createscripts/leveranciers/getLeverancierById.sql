@@ -20,7 +20,8 @@ BEGIN
         c.Straat,
         c.Huisnummer,
         c.Postcode,
-        c.Stad
+        c.Stad,
+        l.IsActief
     FROM Leverancier l
     JOIN Contact c ON l.ContactId = c.Id
     WHERE l.Id = leverancierId;
