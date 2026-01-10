@@ -16,6 +16,7 @@ BEGIN
         l.ContactPersoon,
         l.LeverancierNummer,
         l.Mobiel,
+        l.ContactId,
         c.Straat,
         c.Huisnummer,
         c.Postcode,
