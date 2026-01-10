@@ -28,7 +28,7 @@ CREATE TABLE Leverancier (
     Id INT AUTO_INCREMENT PRIMARY KEY,
     Naam VARCHAR(255) NOT NULL,
     ContactPersoon VARCHAR(100) NOT NULL,
-    Leveranciernummer VARCHAR(20) NOT NULL,
+    LeverancierNummer VARCHAR(20) NOT NULL,
     Mobiel VARCHAR(20) NOT NULL,
     ContactId INT NOT NULL,
     IsActief BIT NOT NULL DEFAULT 1,
@@ -38,7 +38,7 @@ CREATE TABLE Leverancier (
     FOREIGN KEY (ContactId) REFERENCES Contact(Id)
 );
 
-INSERT INTO Leverancier (Naam, ContactPersoon, Leveranciernummer, Mobiel, ContactId, IsActief, Opmerking, DatumAangemaakt, DatumGewijzigd) VALUES
+INSERT INTO Leverancier (Naam, ContactPersoon, LeverancierNummer, Mobiel, ContactId, IsActief, Opmerking, DatumAangemaakt, DatumGewijzigd) VALUES
 ('Venco', 'Bert van Linge', 'L1029384719', '06-28493827', 1, 1, NULL, SYSDATE(6), SYSDATE(6)),
 ('Astra Sweets', 'Jasper del Monte', 'L1029284315', '06-39398734', 2, 1, NULL, SYSDATE(6), SYSDATE(6)),
 ('Haribo', 'Sven Stalman', 'L1029324748', '06-24383291', 3, 1, NULL, SYSDATE(6), SYSDATE(6)),
