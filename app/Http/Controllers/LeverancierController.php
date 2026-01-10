@@ -61,6 +61,13 @@ class LeverancierController extends Controller
             'Stad' => 'required|string|max:255',
             'IsActief' =>'required',
         ]);
+        if ($data['IsActief'] == 0) {
+            return redirect()->route('leverancier.edit', ['id' => $id])
+                ->with('error', 
+                'Door een technische storing is het niet mogelijk de wijziging door te voeren. 
+                        Probeer het op een later moment nog eens');
+        }
+        else {
 
         $affectedRows = $this->leverancierModel->sp_UpdateLeverancier(
             $id,
@@ -77,14 +84,8 @@ class LeverancierController extends Controller
 
         Log::info("Aantal bijgewerkte rijen: {$affectedRows}");
 
-        if ($data['IsActief'] == 0) {
-            return redirect()->route('leverancier.edit', ['id' => $id])
-                ->with('error', 
-                'Door een technische storing is het niet mogelijk de wijziging door te voeren. 
-                        Probeer het op een later moment nog eens');
-        } else {
-            return redirect()->route('leverancier.edit', ['id' => $id])
-                ->with('success', 'De wijzigingen zijn doorgevoerd.');
-        }  
+        return redirect()->route('leverancier.edit', ['id' => $id])
+        ->with('success', 'De wijzigingen zijn doorgevoerd.');
+        }
     }
 }
