@@ -27,7 +27,7 @@ class LeverancierModel extends Model
         return DB::SELECT ('CALL GetLeverancierById(?)', [$id]);
     }
 
-    public function sp_UpdateLeverancier($id, $naam, $contactpersoon, $leverancierNummer, $mobiel, $contactId, $straat, $huisnummer, $postcode, $stad)
+    public function UpdateLeverancier($id, $naam, $contactpersoon, $leverancierNummer, $mobiel, $contactId, $straat, $huisnummer, $postcode, $stad)
     {
         $row = DB::selectOne(
             'CALL sp_UpdateLeverancier(:id, :naam, :contactpersoon, :leverancierNummer, :mobiel, :contactId, :straat, :huisnummer, :postcode, :stad)', [

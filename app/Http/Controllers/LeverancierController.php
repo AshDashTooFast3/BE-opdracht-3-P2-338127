@@ -69,7 +69,7 @@ class LeverancierController extends Controller
         }
         else {
 
-        $affectedRows = $this->leverancierModel->sp_UpdateLeverancier(
+        $affectedRows = $this->leverancierModel->UpdateLeverancier(
             $id,
             $data['Naam'],
             $data['Contactpersoon'],
