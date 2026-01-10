@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\LeverancierModel;
 use Illuminate\Http\Request;
-use \App\Models\LeverancierModel;
+use Illuminate\Support\Facades\Log;
 
 class LeverancierController extends Controller
 {
@@ -11,7 +12,7 @@ class LeverancierController extends Controller
 
     public function __construct()
     {
-        $this->leverancierModel = new LeverancierModel();
+        $this->leverancierModel = new LeverancierModel;
     }
 
     public function index()
@@ -20,7 +21,7 @@ class LeverancierController extends Controller
 
         return view('leveranciers.index', [
             'title' => 'Overzicht Leveranciers',
-            'leveranciers' => $leveranciers
+            'leveranciers' => $leveranciers,
         ]);
     }
 
@@ -28,9 +29,9 @@ class LeverancierController extends Controller
     {
         $leverancierById = $this->leverancierModel->getLeverancierById($id);
 
-        return view ('leveranciers.show', [
+        return view('leveranciers.show', [
             'title' => 'Leverancier Details',
-            'leverancierById' => $leverancierById
+            'leverancierById' => $leverancierById,
         ]);
     }
 
@@ -39,8 +40,8 @@ class LeverancierController extends Controller
         $leverancierById = $this->leverancierModel->getLeverancierById($id);
 
         return view('leveranciers.edit', [
-            'title' => 'Leverancier Bewerken',
-            'leverancierById' => $leverancierById
+            'title' => 'Wijzig Leveranciergegevens',
+            'leverancierById' => $leverancierById,
         ]);
     }
 
@@ -71,12 +72,14 @@ class LeverancierController extends Controller
             $data['Stad'],
         );
 
+        Log::info("Aantal bijgewerkte rijen: {$affectedRows}");
+
         if ($affectedRows > 0) {
             return redirect()->route('leverancier.show', ['id' => $id])
-                             ->with('success', 'Leverancier succesvol bijgewerkt.');
+                ->with('success', 'Leverancier succesvol bijgewerkt.');
         } else {
             return redirect()->back()
-                             ->with('error', 'Er is een fout opgetreden bij het bijwerken van de leverancier.');
+                ->with('error', 'Er is een fout opgetreden bij het bijwerken van de leverancier.');
         }
     }
 }
